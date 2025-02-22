@@ -64,55 +64,55 @@ const Login = () => {
     };
 
     return (
-        <div className="md:min-h-[calc(100vh-200px)] flex justify-center items-center dark:bg-gray-800 dark:text-white">
-            <div className="card bg-base-100 w-full max-w-md shrink-0 shadow-sm md:p-3 pt-4 dark:bg-gray-800 dark:text-white">
-                <h2 className="text-3xl font-semibold text-center text-brandPrimary pt-6">Login your account</h2>
-                <form onSubmit={handleSubmit} className="card-body">
+        <div className="md:min-h-[calc(100vh-200px)]  flex justify-center items-center dark:bg-gray-800 dark:text-white py-6">
+            <div className="card bg-base-100 w-full border border-white max-w-md shrink-0 shadow-sm md:p-3  dark:bg-gray-800 dark:text-white">
+                <h2 className="text-3xl font-semibold text-center dark:text-white text-[#010d78] pt-3">Login your account</h2>
+                <form onSubmit={handleSubmit} className="card-body ">
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-base dark:text-white">Email</span>
+                            <span className="label-text text-[#010d78] dark:text-white">Email</span>
                         </label>
-                        <input type="email" name="email" ref={emailRef} placeholder="Enter your email" className="input input-bordered bg-[#F3F3F3] dark:bg-neutral dark:text-white" required />
+                        <input type="email" name="email" ref={emailRef} placeholder="Email or Username" className="input  border-[#010d78] dark:border-white dark:bg-neutral dark:text-white" required />
                     </div>
 
                     <div className="form-control relative">
                         <label className="label">
-                            <span className="label-text text-base dark:bg-neutral dark:text-white">Password</span>
+                            <span className="label-text text-[#010d78] dark:bg-neutral dark:text-white">Password</span>
                         </label>
 
                         <input
                             type={showPassword ? 'text' : 'password'}
                             name="password"
-                            placeholder="Enter your password"
-                            className="input input-bordered bg-[#F3F3F3] dark:bg-neutral dark:text-white"
+                            placeholder="******"
+                            className="input border-[#010d78] dark:border-white dark:bg-neutral dark:text-white"
                             required
                         />
-                        <button type="button" onClick={() => setShowPassword(!showPassword)} className="btn btn-xs absolute right-3 text-lg top-12 dark:bg-neutral dark:text-white">
+                        <button type="button" onClick={() => setShowPassword(!showPassword)}  className="btn btn-xs absolute right-3 text-lg top-12 dark:bg-neutral dark:text-white">
                             {showPassword ? <FaEye /> : <FaEyeSlash />}
                         </button>
 
                         {error.login && <label className="label text-red-600 text-sm">{error.login}</label>}
 
                         <label onClick={handleForgetPassword} className="label">
-                            <Link to="#" className="label-text-alt link link-hover text-base dark:text-white">
+                            <Link to="#" className="label-text-alt link link-hover text-red-500 dark:text-white">
                                 Forgot password?
                             </Link>
                         </label>
                     </div>
-                    <div className="form-control mt-4">
-                        <button className="btn text-white text-base btn-neutral">Login</button>
+                    <div className="form-control mt-2">
+                        <button className="btn text-white bg-[#010d78] hover:bg-gray-200 hover:text-[#010d78] btn-neutral">Login</button>
                     </div>
 
-                    <div className="form-control mt-6 flex justify-center gap-3">
-                        <button type="button" onClick={handleGoogleLogin} className="btn text-base bg-brandPrimary ">
+                    <div className="form-control mt-2 flex justify-center gap-3">
+                        <button type="button" onClick={handleGoogleLogin} className="btn text-base bg-white dark:bg-neutral dark:border-white dark:text-white hover:bg-[#010d78] border-[#010d78] hover:text-white">
                             <img className="w-6 mr-1 shadow-2xl" src={google} alt="" /> Google Login
                         </button>
                     </div>
                 </form>
 
-                <p className="text-center text-gray-500 font-semibold pb-10">
+                <p className="text-center text-gray-500  pb-4">
                     <span>Don’t Have An Account ? </span>
-                    <Link className="text-red-400 link-hover" to="/auth/register">
+                    <Link className="text-[#010d78] dark:text-white link-hover" to="/auth/register">
                         Register
                     </Link>
                 </p>

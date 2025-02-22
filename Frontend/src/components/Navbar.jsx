@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
-import userIcon from '../assets/user.png';
-import logo from '../assets/frame.png';
+// import userIcon from '../assets/user.png';
+// import logo from '../assets/frame.png';
 import { AuthContext } from '../provider/AuthProvider';
+// import Login from './../pages/Login';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -36,9 +37,10 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar container mx-auto px-3 py-3">
+        <div className="navbar container mx-auto px-3 py-1 ">
             <div className="navbar-start">
-                <img src={logo} alt="logo" className="w-14 rounded-md" />
+                {/* <img src={logo} alt="logo" className="w-14 rounded-md" /> */}
+                <h2 className="text-xl font-semibold text-white">Quick Task</h2>
             </div>
 
             {/* login / logout functionality */}
@@ -60,9 +62,73 @@ const Navbar = () => {
                         </button>
                     )}
                 </div>
+
+
+
+                {user && user?.email ? (
+                        <div className="dropdown dropdown-end flex items-center gap-3">
+                        <div
+                            tabIndex={0}
+                            role="button"
+                            className="btn  btn-circle avatar "
+                        >
+                            <div className="w-10 rounded-full border-2 border-green-600">
+                            <img
+                                alt="User Profile"
+                                
+                                src={
+                                user?.photoURL
+                                    ? user.photoURL
+                                    : "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                                }
+                                className="object-cover w-full h-full"
+                            />
+                            </div>
+                        </div>
+                        <ul
+                            tabIndex={0}
+                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[50] mt-56 w-52 p-2 shadow"
+                        >
+                            <div className=" border-b px-4 ">
+                            <div>
+                                <h2 className="text-orange-400 pt-3 font-bold rounded-lg text-center text-md  ">
+                                {user.displayName}
+                                </h2>
+                                <h2 className="text-orange-400   rounded-lg text-center text-xs mb-3  ">
+                                {user.email}
+                                </h2>
+                            </div>
+                            </div>
+                            
+
+                            <li
+                            onClick={() => {
+                                if (window.confirm("Are you sure you want to log out?")) {
+                                    logOut();
+                                }
+                            }}
+                            className="text-red-500 font-semibold"
+                            >
+                            <Link to="/">Logout</Link>
+                            </li>
+                        </ul>
+                        </div>
+                    ) : (
+                        <Link
+                        to="/auth/login"
+                        className="btn  py-2 px-4 md:px-7 hover:bg-gray-700 text-[#80CDC3]  font-Oswald uppercase"
+                    >
+                        Login
+                    </Link>
+                    )}
+
+
+
+
+
                 
                 {/* user image  */}
-                <div>
+                {/* <div>
                     {user && user?.email ? (
                         <div className="relative flex items-center gap-2 group">
                             <Link className="flex lg:ml-10 items-center gap-2">
@@ -75,9 +141,9 @@ const Navbar = () => {
                     ) : (
                         <img className="rounded-full" src={userIcon} alt="user" />
                     )}
-                </div>
+                </div> */}
 
-                <div className="lg:flex">
+                {/* <div className="lg:flex">
                     {user && user?.email ? (
                         <button onClick={logOut} className="btn bg-brandPrimary text-brandLight hover:text-brandPrimary font-semibold">
                         Log Out
@@ -92,7 +158,7 @@ const Navbar = () => {
                             </Link>
                         </div>
                     )}
-                </div>
+                </div> */}
             </div>
         </div>
     );
