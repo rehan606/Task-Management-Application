@@ -34,7 +34,7 @@ Ensure you have the following installed:
 ### Steps:
 #### 1. Clone the repository:
 ```sh
-git clone https://github.com/your-username/quick-task.git
+git clone https://github.com/rehan606/Task-Management-Application.git
 cd quick-task
 ```
 
@@ -94,4 +94,6 @@ Feel free to contribute! Fork the repo, make your changes, and submit a pull req
 
 ## License
 This project is licensed under the MIT License.
+
+<p align='center> Thank You</p>
 
