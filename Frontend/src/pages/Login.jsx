@@ -2,8 +2,9 @@ import { GoogleAuthProvider, sendPasswordResetEmail, signInWithPopup } from 'fir
 import { useContext, useRef, useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import google from '../../src/assets/google.png';
+
 import { AuthContext } from '../provider/AuthProvider';
+import { GrGoogle } from "react-icons/gr";
 
 import { toast, Toaster } from 'react-hot-toast';
 
@@ -64,9 +65,9 @@ const Login = () => {
     };
 
     return (
-        <div className="md:min-h-[calc(100vh-200px)]  flex justify-center items-center dark:bg-gray-800 dark:text-white py-6">
-            <div className="card bg-base-100 w-full border border-white max-w-md shrink-0 shadow-sm md:p-3  dark:bg-gray-800 dark:text-white">
-                <h2 className="text-3xl font-semibold text-center dark:text-white text-[#010d78] pt-3">Login your account</h2>
+        <div className="md:min-h-[calc(100vh-200px)] p-3 flex justify-center items-center dark:bg-[#000000] dark:text-white py-6">
+            <div className="card bg-base-100 w-full border border-white max-w-md shrink-0 shadow-sm md:p-3  dark:bg-[#1E1E1E] dark:text-white">
+                <h2 className="text-2xl md:text-3xl font-semibold text-center dark:text-white text-[#010d78] pt-3">Login your account</h2>
                 <form onSubmit={handleSubmit} className="card-body ">
                     <div className="form-control">
                         <label className="label">
@@ -77,7 +78,7 @@ const Login = () => {
 
                     <div className="form-control relative">
                         <label className="label">
-                            <span className="label-text text-[#010d78] dark:bg-neutral dark:text-white">Password</span>
+                            <span className="label-text text-[#010d78]  dark:text-white">Password</span>
                         </label>
 
                         <input
@@ -105,7 +106,7 @@ const Login = () => {
 
                     <div className="form-control mt-2 flex justify-center gap-3">
                         <button type="button" onClick={handleGoogleLogin} className="btn text-base bg-white dark:bg-neutral dark:border-white dark:text-white hover:bg-[#010d78] border-[#010d78] hover:text-white">
-                            <img className="w-6 mr-1 shadow-2xl" src={google} alt="" /> Google Login
+                        <GrGoogle /> Google Login
                         </button>
                     </div>
                 </form>

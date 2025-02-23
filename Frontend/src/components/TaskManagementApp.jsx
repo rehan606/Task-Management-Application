@@ -178,17 +178,17 @@ const TaskManagementApp = () => {
     };
 
     return (
-        <div className="min-h-screen  bg-gray-100  dark:bg-gray-800 dark:text-white">
-            <h1 className="text-4xl font-semibold text-center mb-5 text-[#010d78] dark:text-white">Task Management</h1>
+        <div className="min-h-screen p-3    dark:text-white">
+            <h1 className="text-2xl md:text-4xl  font-semibold text-center mb-7  text-[#010d78] dark:text-white">Task Management</h1>
             <div className="max-w-4xl mx-auto">
                 {/* Add Task Form */}
-                <form onSubmit={handleAddTask} className="bg-white p-4 rounded-lg shadow mb-8 dark:bg-neutral dark:text-white ">
+                <form onSubmit={handleAddTask} className="bg-white p-4 rounded-lg shadow mb-8 dark:bg-[#1E1E1E] dark:text-white ">
                     <input
                         type="text"
                         placeholder="Task Title"
                         value={newTask.Title}
                         onChange={e => setNewTask({ ...newTask, Title: e.target.value })}
-                        className="w-full p-2 mb-2 border rounded dark:bg-gray-800 dark:text-white dark:border-gray-700"
+                        className="w-full p-2 mb-2 border rounded dark:bg-[#1E1E1E] dark:text-white dark:border-gray-700"
                         maxLength={50}
                         required
                     />
@@ -196,13 +196,13 @@ const TaskManagementApp = () => {
                         placeholder="Task Description"
                         value={newTask.Description}
                         onChange={e => setNewTask({ ...newTask, Description: e.target.value })}
-                        className="w-full p-2 mb-2 border rounded dark:bg-gray-800 dark:text-white dark:border-gray-700"
+                        className="w-full p-2 mb-2 border rounded dark:bg-[#1E1E1E] dark:text-white dark:border-gray-700"
                         maxLength={200}
                     />
                     <select
                         value={newTask.Category}
                         onChange={e => setNewTask({ ...newTask, Category: e.target.value })}
-                        className="w-full p-2 mb-2 border rounded dark:bg-gray-800 dark:text-white dark:border-gray-700"
+                        className="w-full p-2 mb-2 border rounded dark:bg-[#1E1E1E] dark:text-white dark:border-gray-700"
                         required>
                         <option value="To-Do">To-Do</option>
                         <option value="In Progress">In Progress</option>
@@ -211,7 +211,7 @@ const TaskManagementApp = () => {
                     <button
                         type="submit"
                         disabled={isLoading}
-                        className="w-full bg-[#010d78] text-white p-2 rounded hover:bg-blue-600 disabled:bg-blue-300 dark:bg-gray-900 dark:hover:bg-gray-800 dark:text-white transition">
+                        className="w-full bg-[#010d78] text-white p-2 rounded hover:bg-[#0a0e3a] disabled:bg-blue-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:text-white transition">
                         {isLoading ? 'Adding...' : 'Add Task'}
                     </button>
                 </form>
@@ -219,7 +219,7 @@ const TaskManagementApp = () => {
                 {/* Task Columns */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     {['To-Do', 'In Progress', 'Done'].map(category => (
-                        <div key={category} onDrop={e => handleDrop(e, category)} onDragOver={e => e.preventDefault()} className="bg-white p-4 rounded-lg shadow dark:bg-neutral dark:text-white">
+                        <div key={category} onDrop={e => handleDrop(e, category)} onDragOver={e => e.preventDefault()} className="bg-white p-4 rounded-lg shadow dark:bg-[#1E1E1E] dark:text-white">
                             <h2 className="text-xl font-semibold mb-4">{category}</h2>
                             {Array.isArray(tasks) &&
                                 tasks
@@ -230,7 +230,7 @@ const TaskManagementApp = () => {
                                             key={task._id}
                                             draggable
                                             onDragStart={e => handleDragStart(e, task._id)}
-                                            className="p-4 mb-4 border rounded-lg bg-gray-50 dark:bg-gray-800 dark:text-white dark:border-gray-700">
+                                            className="p-4 mb-4 border rounded-lg bg-gray-50 dark:bg-[#000000] dark:text-white dark:border-gray-700">
                                             {editingTask === task._id ? (
                                                 // Edit Form
                                                 <form
@@ -246,25 +246,25 @@ const TaskManagementApp = () => {
                                                         type="text"
                                                         name="title"
                                                         defaultValue={task.Title}
-                                                        className="w-full p-2 mb-2 border rounded dark:bg-gray-800 dark:text-white dark:border-gray-700"
+                                                        className="w-full p-2 mb-2 border rounded dark:bg-[#1E1E1E] dark:text-white dark:border-gray-700"
                                                         required
                                                     />
                                                     <textarea
                                                         name="description"
                                                         defaultValue={task.Description}
-                                                        className="w-full p-2 mb-2 border rounded dark:bg-gray-800 dark:text-white dark:border-gray-700"
+                                                        className="w-full p-2 mb-2 border rounded dark:bg-[#1E1E1E] dark:text-white dark:border-gray-700"
                                                     />
                                                     <select
                                                         name="category"
                                                         defaultValue={task.Category}
-                                                        className="w-full p-2 mb-2 border rounded dark:bg-gray-800 dark:text-white dark:border-gray-700"
+                                                        className="w-full p-2 mb-2 border rounded dark:bg-[#1E1E1E] dark:text-white dark:border-gray-700"
                                                         required>
                                                         <option value="To-Do">To-Do</option>
                                                         <option value="In Progress">In Progress</option>
                                                         <option value="Done">Done</option>
                                                     </select>
                                                     <div className="flex space-x-2">
-                                                        <button type="submit" className="text-sm bg-[#010d78] text-white p-2 rounded hover:bg-green-600">
+                                                        <button type="submit" className="text-sm bg-[#010d78] text-white dark:bg-white dark:text-black p-2 rounded hover:bg-[#1E1E1E] hover:text-white">
                                                             Save
                                                         </button>
                                                         <button type="button" onClick={() => setEditingTask(null)} className="text-sm bg-red-500 text-white p-2 rounded hover:bg-gray-600">
@@ -278,7 +278,7 @@ const TaskManagementApp = () => {
                                                     <h3 className="font-bold">{task.Title}</h3>
                                                     <p className="text-sm text-gray-600 mb-2">{task.Description}</p>
                                                     <p className="text-xs text-gray-400">{new Date(task.TimeStamp).toLocaleString()}</p>
-                                                    <div className="mt-2 flex justify-between items-center px-3 pt-2 bg-[#010d78] rounded-md text-white">
+                                                    <div className="mt-2 flex justify-between items-center px-3 pt-2 bg-[#010d78] dark:bg-[#1E1E1E] rounded-md text-white">
                                                         
                                                         <div className="space-x-2">
                                                             <button className="  text-2xl" onClick={() => handleReorder(task._id, index - 1, category)} disabled={index === 0}>

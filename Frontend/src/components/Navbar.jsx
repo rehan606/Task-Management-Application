@@ -37,10 +37,11 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar container mx-auto px-3 py-1 ">
-            <div className="navbar-start">
+        <div className="navbar container mx-auto px-3 py-1  ">
+            <div className="navbar-start cursor-pointer">
                 {/* <img src={logo} alt="logo" className="w-14 rounded-md" /> */}
-                <h2 className="text-xl font-semibold text-white">Quick Task</h2>
+                <img src="https://i.ibb.co.com/p5CxpSw/task.png" alt="task" border="0" className="w-10 mr-1 rounded-md" />
+                <h2 className="text-lg md:text-xl font-semibold text-white">Quick Task</h2>
             </div>
 
             {/* login / logout functionality */}
@@ -87,14 +88,14 @@ const Navbar = () => {
                         </div>
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[50] mt-56 w-52 p-2 shadow"
+                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[50] mt-44 w-52 p-2 shadow"
                         >
                             <div className=" border-b px-4 ">
                             <div>
-                                <h2 className="text-orange-400 pt-3 font-bold rounded-lg text-center text-md  ">
+                                <h2 className="text-[#010d78] pt-3 font-bold rounded-lg text-center text-md  ">
                                 {user.displayName}
                                 </h2>
-                                <h2 className="text-orange-400   rounded-lg text-center text-xs mb-3  ">
+                                <h2 className="text-gray-400   rounded-lg text-center text-xs mb-3  ">
                                 {user.email}
                                 </h2>
                             </div>
@@ -116,7 +117,7 @@ const Navbar = () => {
                     ) : (
                         <Link
                         to="/auth/login"
-                        className="btn  py-2 px-4 md:px-7 hover:bg-gray-700 text-[#80CDC3]  font-Oswald uppercase"
+                        className="btn  py-2 px-4   text-[#010d78]  font-Oswald uppercase"
                     >
                         Login
                     </Link>

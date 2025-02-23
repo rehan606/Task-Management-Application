@@ -1,9 +1,9 @@
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { useContext, useState } from 'react';
 import { toast, Toaster } from 'react-hot-toast';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaEye, FaEyeSlash,  } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
-import google from '../../src/assets/google.png';
+import { GrGoogle } from "react-icons/gr";
 import { AuthContext } from '../provider/AuthProvider';
 
 const Register = () => {
@@ -105,41 +105,41 @@ const Register = () => {
     };
 
     return (
-        <div className="md:min-h-screen flex justify-center items-center dark:bg-gray-800 dark:text-white pb-16">
-            <div className="card bg-base-100 w-full max-w-lg shrink-0 shadow-sm md:p-2 dark:bg-gray-800 dark:text-white">
-                <h2 className="text-3xl text-brandPrimary font-semibold text-center pt-10">Register your account</h2>
+        <div className="md:min-h-screen p-3 flex justify-center items-center dark:bg-[#000000] dark:text-white ">
+            <div className="card bg-base-100 w-full max-w-lg shrink-0 shadow-sm md:p-2 border dark:bg-[#1E1E1E] dark:text-white">
+                <h2 className="text-2xl md:text-3xl text-[#010d78] dark:text-white font-semibold text-center pt-10">Register your account</h2>
                 <form onSubmit={handleSubmit} className="card-body">
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-base dark:text-white">Your Name</span>
+                            <span className="label-text text-base text-[#010d78]  dark:text-white">Your Name</span>
                         </label>
-                        <input type="text" name="name" placeholder="Enter your name" className="input input-bordered bg-[#F3F3F3] dark:bg-neutral dark:text-white" required />
+                        <input type="text" name="name" placeholder="Enter your name" className="input border-[#010d78] dark:border-white bg-[#F3F3F3] dark:bg-neutral dark:text-white" required />
                     </div>
                     {error.name && <label className="label text-sm text-rose-500">{error.name}</label>}
 
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-base dark:text-white">Photo URL</span>
+                            <span className="label-text text-base text-[#010d78] dark:text-white">Photo URL</span>
                         </label>
-                        <input type="text" name="photo" placeholder="Enter your photo URL" className="input input-bordered bg-[#F3F3F3] dark:bg-neutral dark:text-white" required />
+                        <input type="text" name="photo" placeholder="Enter your photo URL" className="input border-[#010d78] dark:border-white bg-[#F3F3F3] dark:bg-neutral dark:text-white" required />
                     </div>
 
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-base dark:text-white">Email</span>
+                            <span className="label-text text-base text-[#010d78] dark:text-white">Email</span>
                         </label>
-                        <input type="email" name="email" placeholder="Enter your email" className="input input-bordered bg-[#F3F3F3] dark:bg-neutral dark:text-white" required />
+                        <input type="email" name="email" placeholder="Enter your email" className="input border-[#010d78] dark:border-white bg-[#F3F3F3] dark:bg-neutral dark:text-white" required />
                     </div>
 
                     <div className="form-control relative">
                         <label className="label">
-                            <span className="label-text text-base dark:text-white">Password</span>
+                            <span className="label-text text-base text-[#010d78] dark:text-white">Password</span>
                         </label>
                         <input
                             type={showPassword ? 'text' : 'password'}
                             name="password"
-                            placeholder="Enter your password"
-                            className="input input-bordered bg-[#F3F3F3] dark:bg-neutral dark:text-white"
+                            placeholder="Enter password"
+                            className="input border-[#010d78] dark:border-white bg-[#F3F3F3] dark:bg-neutral dark:text-white"
                             required
                             value={password}
                             onChange={e => setPassword(e.target.value)}
@@ -151,46 +151,49 @@ const Register = () => {
 
                     <div className="form-control relative">
                         <label className="label">
-                            <span className="label-text text-base dark:text-white">Confirm Password</span>
+                            <span className="label-text text-base text-[#010d78] dark:text-white">Confirm Password</span>
                         </label>
                         <input
                             type={showConfirmPassword ? 'text' : 'password'}
                             name="confirmPassword"
-                            placeholder="Confirm your password"
-                            className="input input-bordered bg-[#F3F3F3] dark:bg-neutral dark:text-white"
+                            placeholder="Confirm password"
+                            className="input border-[#010d78] dark:border-white bg-[#F3F3F3] dark:bg-neutral dark:text-white"
                             required
                             value={confirmPassword}
                             onChange={e => setConfirmPassword(e.target.value)}
                         />
-                        <button type="button" onClick={handleShowConfirmPassword} className="btn btn-xs absolute right-3 text-lg top-12 dark:bg-neutral dark:text-white">
+                        <button type="button" onClick={handleShowConfirmPassword} className="btn btn-xs absolute right-3 text-lg top-12  dark:bg-neutral dark:text-white">
                             {showConfirmPassword ? <FaEye /> : <FaEyeSlash />}
                         </button>
                     </div>
 
                     <div className="flex gap-3 mt-2">
                         <input className="w-5" type="checkbox" name="terms" />
-                        <p className="text-gray-500 font-semibold text-base">
-                            Accept <span className="text-gray-700">Terms & Conditions</span>
-                        </p>
+                        <a href='#' className="text-gray-500  text-base">
+                            Accept <span className="text-[#010d78] dark:text-white">Terms & Conditions</span>
+                        </a>
                     </div>
-
-                    <div className="form-control mt-6">
+                    <div className="form-control mt-2">
+                        <button className="btn text-white bg-[#010d78] dark:bg-white dark:text-gray-900 hover:bg-[#010d78] hover:text-white btn-neutral">Register</button>
+                    </div>
+                    {/* <div className="form-control mt-6">
                         <button className="btn text-white text-base btn-neutral">Register</button>
-                    </div>
+                    </div> */}
 
                     {errorMessage && <p className="text-red-600 text-center mt-3">{errorMessage}</p>}
 
                     {success && <p className="text-green-500 text-center mt-3">Sign up is Successful.</p>}
 
-                    <div className="form-control mt-6 flex justify-center gap-3">
-                        <button type="button" onClick={handleGoogleLogin} className="btn text-base bg-brandPrimary text-white hover:text-gray-900">
-                            <img className="w-6 mr-1 shadow-2xl" src={google} alt="" /> Google Sign Up
+                    
+                    <div className="form-control mt-2 flex justify-center gap-3">
+                        <button type="button" onClick={handleGoogleLogin} className="btn text-base bg-white dark:bg-neutral dark:border-white dark:text-white hover:bg-[#010d78] border-[#010d78] hover:text-white">
+                        <GrGoogle /> Google Login
                         </button>
                     </div>
                 </form>
                 <p className="text-center text-gray-500 font-semibold pb-10">
                     <span>Already have an account? </span>
-                    <Link className="text-blue-400 link-hover" to="/auth/login">
+                    <Link className="text-[#010d78] dark:text-white link-hover" to="/auth/login">
                         Login
                     </Link>
                 </p>
