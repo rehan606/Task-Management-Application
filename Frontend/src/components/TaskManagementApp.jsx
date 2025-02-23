@@ -1,6 +1,10 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { FaRegEdit } from "react-icons/fa";
+import { FiArrowDownCircle } from "react-icons/fi";
+import { FiArrowUpCircle } from "react-icons/fi";
 
 const TaskManagementApp = () => {
     const [tasks, setTasks] = useState([]);
@@ -174,8 +178,8 @@ const TaskManagementApp = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-100 p-4 dark:bg-gray-800 dark:text-white">
-            <h1 className="text-4xl font-semibold text-center mb-10">Task Management</h1>
+        <div className="min-h-screen  bg-gray-100  dark:bg-gray-800 dark:text-white">
+            <h1 className="text-4xl font-semibold text-center mb-5 text-[#010d78] dark:text-white">Task Management</h1>
             <div className="max-w-4xl mx-auto">
                 {/* Add Task Form */}
                 <form onSubmit={handleAddTask} className="bg-white p-4 rounded-lg shadow mb-8 dark:bg-neutral dark:text-white ">
@@ -207,7 +211,7 @@ const TaskManagementApp = () => {
                     <button
                         type="submit"
                         disabled={isLoading}
-                        className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 disabled:bg-blue-300 dark:bg-gray-900 dark:hover:bg-gray-800 dark:text-white transition">
+                        className="w-full bg-[#010d78] text-white p-2 rounded hover:bg-blue-600 disabled:bg-blue-300 dark:bg-gray-900 dark:hover:bg-gray-800 dark:text-white transition">
                         {isLoading ? 'Adding...' : 'Add Task'}
                     </button>
                 </form>
@@ -260,10 +264,10 @@ const TaskManagementApp = () => {
                                                         <option value="Done">Done</option>
                                                     </select>
                                                     <div className="flex space-x-2">
-                                                        <button type="submit" className="text-sm bg-green-500 text-white p-1 rounded hover:bg-green-600">
+                                                        <button type="submit" className="text-sm bg-[#010d78] text-white p-2 rounded hover:bg-green-600">
                                                             Save
                                                         </button>
-                                                        <button type="button" onClick={() => setEditingTask(null)} className="text-sm bg-gray-500 text-white p-1 rounded hover:bg-gray-600">
+                                                        <button type="button" onClick={() => setEditingTask(null)} className="text-sm bg-red-500 text-white p-2 rounded hover:bg-gray-600">
                                                             Cancel
                                                         </button>
                                                     </div>
@@ -274,22 +278,27 @@ const TaskManagementApp = () => {
                                                     <h3 className="font-bold">{task.Title}</h3>
                                                     <p className="text-sm text-gray-600 mb-2">{task.Description}</p>
                                                     <p className="text-xs text-gray-400">{new Date(task.TimeStamp).toLocaleString()}</p>
-                                                    <div className="mt-2 flex space-x-2">
-                                                        <button onClick={() => setEditingTask(task._id)} className="text-sm text-blue-500 hover:text-blue-700">
-                                                            Edit
-                                                        </button>
-                                                        <button onClick={() => handleDeleteTask(task._id)} className="text-sm text-red-500 hover:text-red-700">
-                                                            Delete
-                                                        </button>
-                                                        <button className="ml-3" onClick={() => handleReorder(task._id, index - 1, category)} disabled={index === 0}>
-                                                            ⬆️
-                                                        </button>
-                                                        <button
-                                                            className="ml-3"
-                                                            onClick={() => handleReorder(task._id, index + 1, category)}
-                                                            disabled={index === tasks.filter(t => t.Category === category).length - 1}>
-                                                            ⬇️
-                                                        </button>
+                                                    <div className="mt-2 flex justify-between items-center px-3 pt-2 bg-[#010d78] rounded-md text-white">
+                                                        
+                                                        <div className="space-x-2">
+                                                            <button className="  text-2xl" onClick={() => handleReorder(task._id, index - 1, category)} disabled={index === 0}>
+                                                                <FiArrowUpCircle />
+                                                            </button>
+                                                            <button
+                                                                className="  text-2xl"
+                                                                onClick={() => handleReorder(task._id, index + 1, category)}
+                                                                disabled={index === tasks.filter(t => t.Category === category).length - 1}>
+                                                                <FiArrowDownCircle />
+                                                            </button>
+                                                        </div>
+                                                        <div className="space-x-2">
+                                                            <button onClick={() => setEditingTask(task._id)} className="text-2xl  hover:text-gray-300">
+                                                                <FaRegEdit />
+                                                            </button>
+                                                            <button onClick={() => handleDeleteTask(task._id)} className="text-2xl text-red-500 hover:text-red-700">
+                                                            <RiDeleteBin6Line />
+                                                            </button>
+                                                        </div>
                                                     </div>
                                                 </>
                                             )}

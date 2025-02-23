@@ -47,16 +47,16 @@ const Navbar = () => {
             <div className="navbar-end md:flex gap-2">
 
                 {/* DarkMode Light Mode  */}
-                <div>
+                <div className='flex items-center gap-2'>
                     {mode === 'light' ? (
                         <button onClick={toggleMode}>
-                            <span className="text-3xl text-yellow-500">
+                            <span className="text-3xl text-white">
                                 <IoSunnyOutline />
                             </span>
                         </button>
                     ) : (
                         <button onClick={toggleMode}>
-                            <span className="text-3xl text-gray-500">
+                            <span className="text-3xl text-white">
                                 <IoMoonOutline />
                             </span>
                         </button>
