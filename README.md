@@ -3,6 +3,8 @@
 ## Overview
 Quick Task is a full-stack Task Management application designed to help users efficiently organize and manage their tasks. The application features a drag-and-drop task management system, task ordering functionality, and real-time updates using Firebase.
 
+<a href="https://fir-authentication-88d8a.web.app/"> Click Here To Visite Site </a>
+
 ## Features
 - **Drag & Drop Tasks** – Easily rearrange tasks with a drag-and-drop interface.
 - **Task Ordering** – Prioritize tasks by reordering them.
@@ -21,6 +23,9 @@ Quick Task is a full-stack Task Management application designed to help users ef
 - Node.js
 - Express.js
 - MongoDB (Mongoose)
+
+## Layout: 
+<p><img src="https://i.ibb.co.com/TD6Kpz3p/image.png" alt="image" border="0" width="800"></p>
 
 ## Installation
 Follow these steps to set up the project locally:
@@ -86,7 +91,6 @@ npm start
 - `cors`
 - `dotenv`
 - `jsonwebtoken`
-- `bcryptjs`
 - `nodemon` (for development)
 
 ## Contribution
